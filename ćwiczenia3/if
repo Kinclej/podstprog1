@@ -1,0 +1,346 @@
+#1
+def find_numbers(start, end):
+    numbers = []
+    for i in range(start, end + 1):
+        if i % 7 == 0 and i % 5 == 0:
+            numbers.append(i)
+    return numbers
+
+start_range = int(input("Enter the start of the range: "))
+end_range = int(input("Enter the end of the range: "))
+
+result = find_numbers(start_range, end_range)
+print("Numbers which are divisible by 7 and multiples of 5 between", start_range, "and", end_range, "are:", result)
+
+
+#2
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+choice = input("Enter '1' to convert Celsius to Fahrenheit, or '2' to convert Fahrenheit to Celsius: ")
+
+if choice == '1':
+    celsius = float(input("Enter temperature in Celsius: "))
+    print("Temperature in Fahrenheit:", celsius_to_fahrenheit(celsius))
+elif choice == '2':
+    fahrenheit = float(input("Enter temperature in Fahrenheit: "))
+    print("Temperature in Celsius:", fahrenheit_to_celsius(fahrenheit))
+else:
+    print("Invalid choice")
+
+#3
+import random
+
+def guess_number():
+    target_number = random.randint(1, 9)
+    attempts = 0
+    while True:
+        guess = int(input("Guess a number between 1 and 9: "))
+        attempts += 1
+        if guess == target_number:
+            print("Congratulations! You guessed it right in", attempts, "attempts.")
+            break
+        elif guess < target_number:
+            print("Too low! Try again.")
+        else:
+            print("Too high! Try again.")
+
+guess_number()
+
+#4
+def binary_divisible_by_5():
+    for i in range(1000, 1050):
+        binary = bin(i)[2:]
+        if int(binary, 2) % 5 == 0:
+            print(binary)
+
+binary_divisible_by_5()
+
+
+#5
+def reverse_word(word):
+    return word[::-1]
+
+word = input("Enter a word to reverse: ")
+reversed_word = reverse_word(word)
+print("Reversed word:", reversed_word)
+
+#6
+def count_even_odd(numbers):
+    even_count = 0
+    odd_count = 0
+    for num in numbers:
+        if num % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+    return even_count, odd_count
+
+numbers = input("Enter a series of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+
+even_count, odd_count = count_even_odd(numbers)
+print("Number of even numbers:", even_count)
+print("Number of odd numbers:", odd_count)
+
+#7
+def print_item_types(lst):
+    for item in lst:
+        print(item, ":", type(item))
+
+
+my_list = [1, "hello", 3.14, True, [1, 2, 3]]
+
+print("Items and their corresponding types:")
+print_item_types(my_list)
+
+
+#8
+def print_numbers_except_3_and_6():
+    for num in range(7):
+        if num != 3 and num != 6:
+            print(num)
+
+print("Numbers from 0 to 6 except 3 and 6:")
+print_numbers_except_3_and_6()
+
+#9
+def fibonacci_series():
+    a, b = 0, 1
+    while a < 50:
+        print(a, end=" ")
+        a, b = b, a + b
+
+print("Fibonacci series between 0 and 50:")
+fibonacci_series()
+
+#10
+def fizzbuzz():
+    for num in range(1, 51):
+        if num % 3 == 0 and num % 5 == 0:
+            print("FizzBuzz")
+        elif num % 3 == 0:
+            print("Fizz")
+        elif num % 5 == 0:
+            print("Buzz")
+        else:
+            print(num)
+
+print("FizzBuzz output:")
+fizzbuzz()
+
+#11
+pattern = ""
+for row in range(7):
+    for col in range(7):
+        if (row == 0 or row == 3 or row == 6) and (col > 0 and col < 6):
+            pattern += "*"
+        elif (row == 1 or row == 2) and (col == 0):
+            pattern += "*"
+        elif (row == 4 or row == 5) and (col == 6):
+            pattern += "*"
+        else:
+            pattern += " "
+    pattern += "\n"
+
+print(pattern)
+
+
+#12
+def print_pattern_U():
+    for row in range(7):
+        for col in range(7):
+            if ((col == 0 or col == 6) and row != 6) or (row == 6 and col > 0 and col < 6):
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+print("Alphabet pattern 'U':")
+print_pattern_U()
+
+#13
+def zodiac_sign(day, month):
+    if (month == 3 and day >= 21) or (month == 4 and day <= 19):
+        return "Aries"
+    elif (month == 4 and day >= 20) or (month == 5 and day <= 20):
+        return "Taurus"
+    elif (month == 5 and day >= 21) or (month == 6 and day <= 20):
+        return "Gemini"
+    elif (month == 6 and day >= 21) or (month == 7 and day <= 22):
+        return "Cancer"
+    elif (month == 7 and day >= 23) or (month == 8 and day <= 22):
+        return "Leo"
+    elif (month == 8 and day >= 23) or (month == 9 and day <= 22):
+        return "Virgo"
+    elif (month == 9 and day >= 23) or (month == 10 and day <= 22):
+        return "Libra"
+    elif (month == 10 and day >= 23) or (month == 11 and day <= 21):
+        return "Scorpio"
+    elif (month == 11 and day >= 22) or (month == 12 and day <= 21):
+        return "Sagittarius"
+    elif (month == 12 and day >= 22) or (month == 1 and day <= 19):
+        return "Capricorn"
+    elif (month == 1 and day >= 20) or (month == 2 and day <= 18):
+        return "Aquarius"
+    elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
+        return "Pisces"
+    else:
+        return "Invalid date"
+
+day = int(input("Enter the day of birth (1-31): "))
+month = int(input("Enter the month of birth (1-12): "))
+
+
+sign = zodiac_sign(day, month)
+print("Your astrological sign is:", sign)
+
+
+#14
+def find_season(month, day):
+    if (month == 3 and day >= 20) or (month == 4) or (month == 5) or (month == 6 and day <= 20):
+        return "Spring"
+    elif (month == 6 and day >= 21) or (month == 7) or (month == 8) or (month == 9 and day <= 22):
+        return "Summer"
+    elif (month == 9 and day >= 23) or (month == 10) or (month == 11) or (month == 12 and day <= 21):
+        return "Autumn"
+    elif (month == 12 and day >= 22) or (month == 1) or (month == 2) or (month == 3 and day <= 19):
+        return "Winter"
+    else:
+        return "Invalid date"
+
+
+month = int(input("Enter the month (1-12): "))
+day = int(input("Enter the day (1-31): "))
+
+
+season = find_season(month, day)
+print("The season for", month, "/", day, "is:", season)
+
+
+#15
+def triangle_type(a, b, c):
+    if a == b == c:
+        return "Equilateral"
+    elif a == b or b == c or a == c:
+        return "Isosceles"
+    else:
+        return "Scalene"
+
+
+a = float(input("Enter the length of side a: "))
+b = float(input("Enter the length of side b: "))
+c = float(input("Enter the length of side c: "))
+
+
+triangle = triangle_type(a, b, c)
+print("The triangle with sides", a, ",", b, ",", c, "is:", triangle)
+
+
+#16
+def is_integer(s):
+    return s.isdigit() or (s[0] == '-' and s[1:].isdigit())
+
+
+s = input("Enter a string: ")
+
+
+if is_integer(s):
+    print("The string represents an integer.")
+else:
+    print("The string does not represent an integer.")
+
+
+#17
+def month_to_days(month_name):
+    months = {
+        'January': 31,
+        'February': 28,
+        'March': 31,
+        'April': 30,
+        'May': 31,
+        'June': 30,
+        'July': 31,
+        'August': 31,
+        'September': 30,
+        'October': 31,
+        'November': 30,
+        'December': 31
+    }
+    return months.get(month_name, 'Invalid month name')
+
+
+month_name = input("Enter the month name: ")
+
+
+num_days = month_to_days(month_name)
+if num_days != 'Invalid month name':
+    print(f"{month_name} has {num_days} days.")
+else:
+    print("Invalid month name.")
+
+
+#18
+def all_even_digits(number):
+    for digit in str(number):
+        if int(digit) % 2 != 0:
+            return False
+    return True
+
+
+result = [str(num) for num in range(100, 401) if all_even_digits(num)]
+
+print(",".join(result))
+
+#19
+import re
+
+def is_valid_password(password):
+
+    if not re.search("[a-z]", password) or not re.search("[A-Z]", password):
+        return False
+    
+
+    if not re.search("[0-9]", password):
+        return False
+    
+
+    if not re.search("[$#@]", password):
+        return False
+    
+
+    if len(password) < 6 or len(password) > 16:
+        return False
+    
+    return True
+
+
+password = input("Enter the password: ")
+
+
+if is_valid_password(password):
+    print("Password is valid.")
+else:
+    print("Password is not valid.")
+
+
+#20
+def count_letters_digits(input_string):
+    num_letters = 0
+    num_digits = 0
+    for char in input_string:
+        if char.isalpha():
+            num_letters += 1
+        elif char.isdigit():
+            num_digits += 1
+    return num_letters, num_digits
+
+
+input_string = input("Enter a string: ")
+
+letters, digits = count_letters_digits(input_string)
+print("Number of letters:", letters)
+print("Number of digits:", digits)
