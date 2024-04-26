@@ -1,0 +1,188 @@
+#1
+def sum_list(items):
+
+    sum_numbers = 0
+
+    for x in items:
+
+        sum_numbers += x
+
+    return sum_numbers
+
+print(sum_list([2, 3, -6]))
+
+#2
+def multiply_list(items):
+
+    tot = 1
+
+    for x in items:
+
+        tot *= x
+
+    return tot
+
+print(multiply_list([2, 3, -6]))
+
+#3
+def max_num_in_list(list):
+
+    max = list[0]
+
+    for a in list:
+         if a > max:
+
+            max = a
+    return max
+
+print(max_num_in_list([2, 3, -6, 10]))
+
+#4
+def smallest_num_in_list(list):
+
+    min = list[0]
+
+    for a in list:
+        if a < min:
+            min = a
+    return min
+
+print(smallest_num_in_list([2, 3, -6, 10]))
+
+#5
+def match_words(words):
+
+    ctr = 0
+
+    for word in words:
+        if len(word) > 1 and word[0] == word[-1]:
+           
+            ctr += 1
+
+    return ctr
+
+print(match_words(['abc', 'xyz', 'aba', '1221']))
+
+#6
+def last(n):
+    return n[-1]
+
+def sort_list_last(tuples):
+    return sorted(tuples, key=last)
+
+print(sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]))
+
+#7
+a = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]
+
+dup_items = set()
+uniq_items = []
+
+for x in a:
+
+    if x not in dup_items:
+
+        uniq_items.append(x)
+
+        dup_items.add(x)
+
+print(dup_items) 
+
+#8
+l = []
+
+if not l:
+    print("List is empty")
+
+#9
+import ast
+
+zakupy = "['mleko', 'jajka', 'chleb']"
+
+print(ast.literal_eval(zakupy)) 
+
+#10
+x = [10, 20, 30]
+y = [40, 50, 60]
+
+x[:0] =y
+
+print(x)
+
+#11
+def values_greater_than(numbers, threshold):
+
+    greater_values = [num for num in numbers if num > threshold]
+    return greater_values
+
+numbers_list = [32, 4, 3, 3, 8, 10, 4, 1]
+threshold_value = 9
+result = values_greater_than(numbers_list, threshold_value)
+print("Values greater than", threshold_value, ":", result)
+
+#12
+color1 = "Red", "Green", "Orange", "White"
+
+color2 = "Black", "Green", "White", "Pink"
+
+print(set(color1) & set(color2))
+
+#13
+import random
+color_list = ['Red', 'Blue', 'Green', 'White', 'Black']
+
+print(random.choice(color_list))
+
+#14
+obj = {}
+
+for i in range(1, 21):
+
+    obj[str(i)] = []
+
+print(obj) 
+
+#15
+def create_empty_dictionaries(count):
+
+    return [{} for _ in range(count)]
+
+num_dictionaries = 5
+empty_dict_list = create_empty_dictionaries(num_dictionaries)
+print("Created dictionaries:", empty_dict_list)
+
+#16
+x = [1, 2, 3, 4, 5, 6]
+
+xlen = len(x) - 1
+
+print(x[xlen])
+
+#17
+num = [1, 2, 3, 4, 5]
+
+print(*num)
+
+#18
+def remove_evens(numbers):
+
+    odd_numbers = [num for num in numbers if num % 2 != 0]
+    return odd_numbers
+
+numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+result = remove_evens(numbers_list)
+print("Numbers after removing evens:", result)
+
+#19
+from random import shuffle
+
+liczba = ['35', '20', '1', '0', '87', '695']
+
+shuffle(liczba)
+
+print(liczba)
+
+#20
+import itertools
+
+print(list(itertools.permutations([6, 5, 2])))
