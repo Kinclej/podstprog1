@@ -1,0 +1,210 @@
+#1
+d = {0: 10, 1: 20}
+
+print(d)
+
+d.update({2: 30})
+
+print(d) 
+
+#2
+d = {'x': 1, 'y': 2, 'z': 3} 
+
+for dict_key, dict_value in d.items():
+    print(dict_key, '->', dict_value)
+
+#3
+def merge_dictionaries(d1, d2):
+
+    merged_d = {**d1, **d2}
+    return merged_d
+
+# Example dictionaries
+d1 = {'a': 1, 'b': 2}
+d2 = {'b': 3, 'c': 4}
+
+# Merge the dictionaries
+result = merge_dictionaries(d1, d2)
+print("Merged dictionary:", result)
+
+#4
+d = {'Jack': 1, 'Rose': 2, 'Becky': 3}
+
+for numbers, value in d.items():
+    print(numbers, 'corresponds to ', d[numbers])
+
+#5
+my_dict = {'data1': 35, 'data2': 21, 'data3': 27}
+
+result = sum(my_dict.values())
+
+print(result)
+
+#6
+def find_max_min_values(my_dict):
+
+    max_value = max(my_dict.values())
+    min_value = min(my_dict.values())
+    
+    return max_value, min_value
+
+example_dict = {'data1': 98, 'data2': -8, 'data3': 68, 'data4': -562}
+
+max_val, min_val = find_max_min_values(example_dict)
+print("Max:", max_val)
+print("Min:", min_val)
+
+#7
+my_dict = {'data1': 3, 'data2': 5, 'data3': 9}
+
+result = 1
+
+for num in my_dict:
+
+    result = result * my_dict[num]
+
+print(result)
+
+#8
+myDict = {'a': 0, 'b': 1, 'c': 2, 'd': 3}
+
+print(myDict)
+
+if 'c' in myDict:
+    del myDict['c']
+
+print(myDict)
+
+#9
+my_dict = {}
+
+if not bool(my_dict):
+
+    print("Dictionary is empty")
+
+#10
+def find_highest_values(dictionary, n=3):
+
+    sorted_items = sorted(dictionary.items(), key=lambda x: x[1], reverse=True)
+    
+    highest_values = sorted_items[:n]
+    
+    return highest_values
+
+my_dict = {'a': 26, 'b': 8, 'c': 20, 'd': 650, 'e': 45}
+
+highest_values = find_highest_values(my_dict, 3)
+
+for key, value in highest_values:
+    print(key)
+
+#11
+def sort_list_alphabetically(dictionary):
+
+    sorted_dict = {key: sorted(value) for key, value in dictionary.items()}
+    return sorted_dict
+
+unsorted_dict = {'list1': ['orange', 'grey', 'black'],
+                 'list2': ['bread', 'road', 'elephant', 'parrot'],
+                 'list3': ['strike', 'bomb', 'hug']}
+
+sorted_dict = sort_list_alphabetically(unsorted_dict)
+
+print("Unsorted:")
+print(unsorted_dict)
+print("\nSorted:")
+print(sorted_dict)
+
+#12
+def remove_spaces_from_keys(dictionary):
+
+    new_dict = {key.replace(' ', ''): value for key, value in dictionary.items()}
+    return new_dict
+
+dict_with_spaces = {'play ground': 1, 'heart break': 2, 'play room': 3}
+
+dict_without_spaces = remove_spaces_from_keys(dict_with_spaces)
+
+print(dict_with_spaces)
+print(dict_without_spaces)
+
+#13
+def print_dict_line_by_line(dictionary):
+
+    for key, value in dictionary.items():
+        print(key, ":", value)
+
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+print_dict_line_by_line(my_dict)
+
+#14
+student = {
+  'name': 'Alex',
+  'class': 'V',
+  'roll_id': '2'
+}
+
+print(student.keys() >= {'class', 'name'})
+
+print(student.keys() >= {'name', 'Alex'})
+
+print(student.keys() >= {'roll_id', 'name'}) 
+
+#15
+dict = {'Alex': ['subj1', 'subj2', 'subj3']. 'David':['subj1', 'subj2']}
+
+ctr = sum(map(len, dict.values()))
+
+print(ctr)
+
+#16
+def dictionary_values_length(dictionary)
+
+    total_length = sum(len(value) if isinstance(value, list) else 1 for value in dictionary.values())
+    return total.length
+
+my_dict = {"a": [0, 3, 4], "b": "bread", "c": [6, 7], "d": 10}
+
+values_length = dictionary_values_length(my_dict)
+print(values_length)
+
+#17
+num = {'physics': 80, 'math': 90, 'chemistry': 86}
+
+print("\nAccess the keys of the dictionary as a list:")
+
+print(list(num)[0])
+
+print(list(num)[1])
+
+print(list(num)[2])
+
+#18
+d = dict()
+
+for x in range(1, 16):
+
+    d[x] = x ** 2
+
+print(d)
+
+#19
+
+x = {'key1': 1, 'key2': 3, 'key3': 2}
+y = {'key1': 1, 'key2': 2}
+
+for (key, value) in set(x.items()) & set(y.items()):
+    print('%s: %s is present in both x and y' % (key, value))
+
+#20
+dict1 = {'c1': 'Red', 'c2': 'Green', 'c3': None}
+
+print("Original Dictionary:")
+print(dict1)
+
+print("New Dictionary after dropping empty items:")
+
+dict1 = {key: value for (key, value) in dict1.items() if value is not None}
+
+print(dict1) 
