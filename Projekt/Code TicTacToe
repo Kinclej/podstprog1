@@ -1,0 +1,84 @@
+print("Let's play tic-tac-toe!")
+
+def printboard(board):
+    for row in board:
+        row_str = " | ".join(row)
+        print(row_str)
+        print("-" * 5)
+
+def check_winner(board, player):
+
+    for row in board:
+        if all([cell == player for cell in row]):
+            return True
+
+    for column in range(3):
+        if all([board[row][column] == player for row in range(3)]):
+            return True
+
+    if all([board[i][i] == player for i in range(3)]) or all([board[i][2 - i] == player for i in range(3)]):
+        return True
+    return False
+
+def is_draw(board):
+    for row in board:
+        if " " in row:
+            return False
+    return True
+
+def make_a_move(board, row, column, player):
+    if board[row][column] == " ":
+        board[row][column] = player
+        return True
+    return False
+
+def main():
+    while True:
+        board = [[" " for _ in range(3)] for _ in range(3)]
+        current_player = "X"
+
+        while True:
+            printboard(board)
+            print(f"Player {current_player}, make a move: type [row] [column]")
+
+            try:
+                move = input()
+                row, column = move.split()
+                row = int(row)
+                column = int(column)
+
+                if row < 1 or row > 3 or column < 1 or column > 3:
+                    print("Wrong coordinates")
+                    continue
+                
+                row -= 1
+                column -= 1
+            
+            except ValueError:
+                print("Error! Use space between row and column")
+                continue
+            
+            if not make_a_move(board, row, column, current_player):
+                print("This spot is already taken")
+                continue
+
+            if check_winner(board, current_player):
+                printboard(board)
+                print(f"Player {current_player} won!")
+                break
+
+            if is_draw(board):
+                printboard(board)
+                print("Draw!")
+                break
+
+            current_player = "O" if current_player == "X" else "X"
+
+        play_again = input("Do you want to play again? (yes/no): ")
+        if play_again != "yes":
+            break
+
+if __name__ == "__main__":
+    main()
+
+
